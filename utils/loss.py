@@ -20,18 +20,6 @@ class MaskedAccuracy(object):
         _, p = torch.max(pred, -1)
         masked_tgt = torch.masked_select(tgt, mask.bool())
         p = torch.masked_select(p, mask.bool())
-
-        # multi_p = torch.masked_select(pred, mask.bool())
-        # r_p = multi_p.detach().cpu().numpy()
-        # r_tgt = masked_tgt.detach().cpu().numpy()
-        #
-        # roc_auc = roc_auc_score(r_tgt, r_p)
-
-        # multi_logits = pred[mask][:, :22]
-        # multi_p = softmax(multi_logits, dim=-1).clone().detach().cpu().numpy()
-        # multi_t = one_hot(masked_tgt, num_classes=22).cpu().numpy()
-        # roc_auc = roc_auc_score(multi_t, multi_p,  multi_class="ovr")
-
         return torch.mean((p == masked_tgt).float()), 0
 
 

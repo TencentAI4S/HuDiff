@@ -105,21 +105,17 @@ def process_one_seq_and_frame_line(line):
 
 def frame_main(sample_fpath=None):
     if sample_fpath is None:
-        sample_fpath = '/apdcephfs/share_1364275/waitma/anti_proj/log_v6/' \
-                   'pair_not_pretrain_test_split_2024_01_12__10_26_31/2023_shuffle_lab_not_equal_2024_01_15__17_24_27/sample_humanization_result.csv'
+        sample_fpath = '/sample_humanization_result.csv'
 
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/lab_data/graft_human/graft_germline_seq.csv'
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/lab_data/low_identity/2023_shuffle_lab_not_equal_2024_01_08__15_45_12/sample_humanization_result.csv'
+    
     print(sample_fpath)
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_frame_t20_score.csv')
     if os.path.exists(save_fpath):
         return save_fpath
 
     sample_df = pd.read_csv(sample_fpath)
-    # print(sample_df)
+
     sample_human_df = sample_df[sample_df['Specific'] == 'humanization'].reset_index(drop=True)
-    # sample_human_df = sample_df[sample_df['type'] == 'humanized'].reset_index(drop=True)
-    # print(save_t20_df.columns)
     with concurrent.futures.ProcessPoolExecutor() as executor:
         results = list(tqdm(executor.map(process_one_seq_and_frame_line, sample_human_df.iterrows()), total=len(sample_human_df)))
 
@@ -137,26 +133,17 @@ def main(sample_fpath=None):
     :return:
     """
     if sample_fpath is None:
-        sample_fpath = '/lzu_baiqf/jianma/antibody_proj/data/lab_data/humanization_pair_data_filter.csv'
+        sample_fpath = '/humanization_pair_data_filter.csv'
                    
-
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/lab_data/graft_human/graft_germline_seq.csv'
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/lab_data/low_identity/2023_shuffle_lab_not_equal_2024_01_08__15_45_12/sample_humanization_result.csv'
-    print(sample_fpath)
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_t20_score.csv')
     if os.path.exists(save_fpath):
         return save_fpath
 
     sample_df = pd.read_csv(sample_fpath)
-    # print(sample_df)
+
     sample_human_df = sample_df[sample_df['Specific'] == 'humanization'].reset_index(drop=True)
-    # sample_human_df = sample_df[sample_df['type'] == 'humanized'].reset_index(drop=True)
-    # print(sample_human_df)
 
     save_t20_df = pd.DataFrame(columns=['Raw_name', 'h_score', 'h_gene', 'l_score', 'l_gene', 'h_seq', 'l_seq'])
-    # print(save_t20_df.columns)
-    # with concurrent.futures.ProcessPoolExecutor() as executor:
-    #     results = list(tqdm(executor.map(process_line, sample_human_df.iterrows()), total=len(sample_human_df)))
     results = []
     for line in sample_human_df.iterrows():
         results.append(process_line(line=line))
@@ -173,6 +160,3 @@ def main(sample_fpath=None):
 
 if __name__ == '__main__':
     main()
-    # vhh_fpath = '/data/home/waitma/antibody_proj/antidiff/data/abnativ_vhh/filter_select_vhh.csv'
-    # vhh_df = pd.read_csv(vhh_fpath)
-    # frame_main(vhh_fpath)

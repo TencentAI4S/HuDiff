@@ -71,23 +71,17 @@ def main(sample_fpath=None):
     :return:
     """
     if sample_fpath is None:
-        sample_fpath = '/lzu_baiqf/jianma/antibody_proj/antibody_finetune_log/' \
-                       'fintune_kabat_filter_False_ratio_0.0-0.0_2024_08_21__04_36_35/' \
-                       '2023_shuffle_humab_finetune_search_simi_True_2024_09_18__15_22_08/sample_humanization_result.csv'
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/humab25_pair/humab_humanized.csv'
+        sample_fpath = '/sample_humanization_result.csv'
+
     print(sample_fpath)
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_z_score.csv')
 
     sample_df = pd.read_csv(sample_fpath)
     sample_human_df = sample_df[sample_df['Specific'] == 'humanization'].reset_index(drop=True)
-    # sample_human_df = sample_df[sample_df['type'] == 'humanized'].reset_index(drop=True)
-    # print(sample_human_df)
 
     save_z_df = pd.DataFrame(columns=['Raw_name', 'h_score', 'h_gene', 'l_score', 'l_gene', 'h_seq', 'l_seq'])
 
     results = []
-    # with concurrent.futures.ProcessPoolExecutor() as executor:
-    #     results = list(tqdm(executor.map(process_z_score_line, sample_human_df.iterrows()), total=len(sample_human_df)))
     for line in sample_human_df.iterrows():
         results.append(process_z_score_line(line))
 

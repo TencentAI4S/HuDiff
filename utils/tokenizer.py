@@ -23,16 +23,8 @@ class Tokenizer():
         # self.tok_unk = '<unk>'
         self.tok_pad = '-'
         self.toks = [*RESD_WITH_X, self.tok_pad, self.tok_msk]
-        # self.toks = [*RESD_WITH_X, self.tok_pad, self.tok_msk]
-        # if self.has_bos:
-        #     self.toks.append(self.tok_bos)
-        # if self.has_eos:
-        #     self.toks.append(self.tok_eos)
         self.tok2idx_dict = {tok: idx for idx, tok in enumerate(self.toks)}
-        # self.idx_bos = self.tok2idx(self.tok_bos)
-        # self.idx_eos = self.tok2idx(self.tok_eos)
         self.idx_msk = self.tok2idx(self.tok_msk)
-        # self.idx_unk = self.tok2idx(self.tok_unk)
         self.idx_pad = self.tok2idx(self.tok_pad)
 
 

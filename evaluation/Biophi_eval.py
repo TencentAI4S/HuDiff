@@ -36,9 +36,8 @@ def main(sample_fpath=None):
     :return:
     """
     if sample_fpath is None:
-        sample_fpath = '/apdcephfs/share_1364275/waitma/anti_proj/log_v6/' \
-                   'v006_pair_not_pretrain_test_split_2024_01_12__20_37_03/2023_shuffle_lab_not_equal_2024_01_15__10_40_24/sample_humanization_result.csv'
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/lab_data/graft_human/graft_germline_seq.csv'
+        sample_fpath = 'sample_humanization_result.csv'
+   
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_identity.fa')
     if os.path.exists(save_fpath):
         print('Fasta file Already exists. Skip!')
@@ -46,7 +45,6 @@ def main(sample_fpath=None):
 
     sample_df = pd.read_csv(sample_fpath)
     sample_human_df = sample_df[sample_df['Specific'] == 'humanization'].reset_index(drop=True)
-    # sample_human_df = sample_df[sample_df['type'] == 'mouse'].reset_index(drop=True)
     trans_to_chain(sample_human_df, save_fpath, version='exp')
 
 if __name__ == '__main__':

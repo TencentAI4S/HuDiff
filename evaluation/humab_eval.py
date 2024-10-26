@@ -108,9 +108,7 @@ def main(sample_fpath=None):
     :return:
     """
     if sample_fpath is None:
-        sample_fpath = '/apdcephfs/share_1364275/waitma/anti_proj/log_v7/' \
-                       'v007_pair_not_pretrain_filter_split_2024_03_08__15_27_06/' \
-                       '2023_shuffle_lab_not_equal_search_simi_False_2024_03_29__17_43_04/sample_humanization_result.csv'
+        sample_fpath = 'sample_humanization_result.csv'
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_humab_score.csv')
 
     sample_df = pd.read_csv(sample_fpath)
@@ -133,4 +131,3 @@ def main(sample_fpath=None):
 
 if __name__ == '__main__':
     main()
-    # v11 [8, 18, 114, 145, 187, 199, 227, 230]

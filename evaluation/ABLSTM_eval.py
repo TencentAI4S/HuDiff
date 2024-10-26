@@ -6,7 +6,6 @@ import sys
 import seaborn as sns
 import matplotlib.pyplot as plt
 import tempfile
-sys.path.append('/lzu_baiqf/jianma/antibody_proj/peds2019/')
 
 from ablstm import ModelLSTM
 
@@ -48,7 +47,7 @@ def model_eval(aho_txt_fpath):
     :param ach_txt:
     :return:
     """
-    model_data_path = '/lzu_baiqf/jianma/antibody_proj/peds2019/saved_models/tmp/model_tmp.npy'
+    model_data_path = '/model.npy'
     pred_model = ModelLSTM(embedding_dim=64, hidden_dim=64, device='cuda', gapped=True, fixed_len=True)
     pred_model.load(fn=model_data_path)
     h_score = pred_model.eval(aho_txt_fpath)
@@ -61,14 +60,12 @@ def main(sample_fpath=None):
     :return:
     """
     if sample_fpath is None:
-        sample_fpath =  '/lzu_baiqf/jianma/antibody_proj/antibody_finetune_log/' \
-                        'fintune_kabat_filter_False_ratio_0.0-0.0_2024_08_21__04_36_35/2023_shuffle_lab_finetune_search_simi_True_2024_09_18__15_18_33/sample_humanization_result.csv'
-    # sample_fpath = '/data/home/waitma/antibody_proj/antidiff/data/humab25_pair/parental_mouse.csv'
+        sample_fpath =  '/sample_humanization_result.csv'
+    
     save_fpath = os.path.join(os.path.dirname(sample_fpath), 'sample_ablstm_score.pkl')
 
     sample_df = pd.read_csv(sample_fpath)
     sample_human_df = sample_df[sample_df['Specific'] == 'humanization'].reset_index(drop=True)
-    # sample_human_df = sample_df[sample_df['type'] == 'mouse'].reset_index(drop=True)
     aho_list = seq_trans_to_aho(sample_human_df)
 
     # Save h_aho_seq_list
