@@ -9,8 +9,6 @@ import re
 from abnumber import Chain
 import concurrent.futures
 
-
-
 T20_REGEX = re.compile('<td>T20 Score:</td><td>([0-9.]+)</td>')
 def get_t20_online(seq, region=1):
     if region == 1:

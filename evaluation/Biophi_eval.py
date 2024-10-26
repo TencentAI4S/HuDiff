@@ -5,11 +5,6 @@ import pandas as pd
 from abnumber import Chain
 from tqdm import tqdm
 
-
-
-
-
-
 def save_pairs(heavy_chains, light_chains, path):
     assert len(heavy_chains) == len(light_chains)
     with open(path, 'w') as f:

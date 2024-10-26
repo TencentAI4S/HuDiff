@@ -9,7 +9,6 @@ import os
 
 from abnumber import Chain
 
-
 # Define deal out-of-order table.
 def regular_order_table(out_of_order_table):
     all_table_data = []
