@@ -1,0 +1,48 @@
+name: trans_oadm
+model:
+  n_tokens: 23
+  d_embedding: 256
+  d_model: 256
+  n_encoder_layers: 6
+  aa_kernel_size: 7
+  r: 128
+  n_side: 3
+  s_embedding: 4
+  s_model: 256
+  n_region: 7
+  r_embedding: 4
+  r_model: 256
+  n_pos_model: 256
+  max_len: 291
+  sum_d_model: 768   # d_model + s_model
+  dual_layers: 6
+  att_model: 512
+  dim_feedforward: 256
+  nhead: 8
+  cs_layers: 5    #5   # cross attention layers
+  dropout: 0.2
+  activation: gelu
+
+train:
+  seed: 2023
+  max_iter: 1000000
+  batch_acc: 300
+  valid_step: 3
+  batch_size: 128 # 256
+  num_workers: 4
+  clip_norm: 10
+  loss_type: merge
+  l_loss_weight: 3
+  optimizer:
+    type: Adam
+    lr: 1.e-4  # 1.e-4
+    weight_decay: 1.e-4
+    beta1: 0.95
+    beta2: 0.999
+  scheduler:
+    type: plateau    # plateau
+    factor: 0.6
+    patience: 10
+    min_lr: 1.e-6
+    multiplier: 10
+    total_epoch: 10

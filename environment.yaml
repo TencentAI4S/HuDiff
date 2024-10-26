@@ -1,0 +1,26 @@
+name: hudiff
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.9
+  - pytorch=1.13.0
+  - torchvision=0.14.0
+  - torchaudio=0.13.0
+  - pytorch-cuda=11.6
+  - python-lmdb
+  - abnumber
+  - pip:
+    - pandas
+    - scipy
+    - scikit-learn
+    - tqdm
+    - tensorboard
+    - easydict
+    - pyyaml
+    - sequence-models
+    - einops
+    - matplotlib
+    - seaborn

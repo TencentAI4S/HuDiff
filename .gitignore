@@ -1,0 +1,19 @@
+# Ignore specific directories
+img_result/
+jupy_script/
+checkpoints/
+tfold/
+tfold_utils/
+tmp/
+data/antibody_eval_data/HuAb348_data/lab_cdr_graft_back_mutation_False_2024_09_02__04_16_28/
+data/antibody_eval_data/HuAb348_data/lab_cdr_graft_back_mutation_True_2024_09_02__04_37_42/
+dataset/oas/
+**/__pycache__
+
+# Ignore specific files
+configs/training_nano_framework_v1.yml
+dataset/build_human_nano_oas_new.py
+dataset/build_human_pair_oas_new.py
+dataset/build_human_unpair_oas_new.py
+
+

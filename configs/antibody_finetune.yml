@@ -1,0 +1,33 @@
+name: antibody_finetune
+model: 
+  type: structure
+  all_seq: False
+  loss_type: 'smooth_loss'
+  human_threshold: 1.0
+  mouse_resi_h_ratio: 0.00
+  mouse_resi_l_ratio: 0.00
+  mutation: False
+
+finetune:
+  batch_acc: 1
+  batch_size: 32
+  num_workers: 4
+  max_iter: 30000
+  valid_step: 50
+  optimizer:
+    type: Adam 
+    lr: 4.e-5
+    weight_decay: 0.
+    beta1: 0.95
+    beta2: 0.999
+  scheduler:
+    type: plateau
+    factor: 0.6
+    patience: 10
+    min_lr: 1.e-6
+    warmup_steps: 10
+  
+preckpt:
+  ab_vh_ckpt: abnativ/vh_model.ckpt
+  ab_vlk_ckpt: abnativ/vkappa_model.ckpt
+  ab_vll_ckpt: abnativ/vlambda_model.ckpt

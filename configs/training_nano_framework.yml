@@ -1,0 +1,39 @@
+name: infilling
+model:
+  loss_type: 'smooth_loss'
+  vhh_nativeness: True
+  temperature: 1
+  human_threshold: 1.0  # if only human 1
+  human_all_seq: False
+  vhh_all_seq: False
+  equal_weight: False
+  part_reconstruct_vhh: False
+
+
+finetune:
+  seed: 2023
+  max_iter: 1000000
+  batch_acc: 1
+  valid_step: 20
+  batch_size: 512
+  num_workers: 4   
+  clip_norm: 10
+  reconstruct_loss_weight: 1.e-3
+  cross_interval: 5
+  optimizer:
+    type: Adam
+    lr: 1.e-5
+    weight_decay: 0.
+    beta1: 0.95
+    beta2: 0.999
+  scheduler:
+    type: plateau
+    factor: 0.6
+    patience: 10
+    min_lr: 1.e-6
+    multiplier: 10
+    total_epoch: 20
+  model:
+    abnativ_humanness_ckpt_fpath: checkpoints/abnativ/vh_model.ckpt
+    abnativ_vhh_ckpt_fpath: checkpoints/abnativ/vhh_model.ckpt
+    infilling_ckpt_fpath: checkpoints/nanobody/pretrained.pt
