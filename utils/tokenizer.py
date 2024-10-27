@@ -2,8 +2,42 @@
 
 import torch
 from torch import nn
+"""Constants."""
 
-from tfold_utils.prot_constants import RESD_NAMES_1C, RESD_WITH_X
+import numpy as np
+
+
+# mapping between 1-char & 3-char residue names
+RESD_MAP_1TO3 = {
+    'A': 'ALA',
+    'R': 'ARG',
+    'N': 'ASN',
+    'D': 'ASP',
+    'C': 'CYS',
+    'Q': 'GLN',
+    'E': 'GLU',
+    'G': 'GLY',
+    'H': 'HIS',
+    'I': 'ILE',
+    'L': 'LEU',
+    'K': 'LYS',
+    'M': 'MET',
+    'F': 'PHE',
+    'P': 'PRO',
+    'S': 'SER',
+    'T': 'THR',
+    'W': 'TRP',
+    'Y': 'TYR',
+    'V': 'VAL',
+}
+RESD_MAP_3TO1 = {v: k for k, v in RESD_MAP_1TO3.items()}
+RESD_NAMES_1C = sorted(list(RESD_MAP_1TO3.keys()))
+RESD_NAMES_3C = sorted(list(RESD_MAP_1TO3.values()))
+RESD_NUM = len(RESD_NAMES_1C)  # := 20.
+RESD_WITH_X = RESD_NAMES_1C + ['X']
+RESD_ORDER_WITH_X = {restype: i for i, restype in enumerate(RESD_WITH_X)}
+N_ATOMS_PER_RESD = 14  # TRP
+N_ANGLS_PER_RESD = 7  # TRP (omega, phi, psi, chi1, chi2, chi3, and chi4)
 
 
 class Tokenizer():

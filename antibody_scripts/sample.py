@@ -21,7 +21,7 @@ from utils.tokenizer import Tokenizer
 from utils.train_utils import model_selected
 from utils.misc import get_new_log_dir, get_logger, seed_all
 from dataset.oas_pair_dataset_new import HEAVY_REGION_INDEX, LIGHT_REGION_INDEX
-from dataset.build_human_pair_oas_new import (
+from dataset.preprocess import (
                             HEAVY_POSITIONS_dict, LIGHT_POSITIONS_dict,
                             HEAVY_CDR_INDEX, LIGHT_CDR_INDEX,
                             HEAVY_CDR_KABAT_NO_VERNIER, LIGHT_CDR_KABAT_NO_VERNIER

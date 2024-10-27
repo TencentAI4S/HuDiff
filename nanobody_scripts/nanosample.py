@@ -19,7 +19,7 @@ from Bio.SeqRecord import SeqRecord
 from Bio import SeqIO
 
 from utils.anti_numbering import get_regions
-from dataset.build_human_pair_oas_new import HEAVY_POSITIONS_dict, HEAVY_CDR_INDEX, INPAINT_HEAVY_CDR_INDEX
+from dataset.preprocess import HEAVY_POSITIONS_dict, HEAVY_CDR_INDEX, INPAINT_HEAVY_CDR_INDEX
 from dataset.oas_pair_dataset_new import light_pad_cdr, HEAVY_REGION_INDEX, LIGHT_REGION_INDEX
 from utils.tokenizer import Tokenizer
 from utils.train_utils import model_selected

@@ -15,9 +15,8 @@ current_dir = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(current_dir)
 
 
-from dataset.build_human_pair_oas_new import (region_padding_fix,
-                                              HEAVY_POSITIONS_dict, LIGHT_POSITIONS_dict,
-                                              HEAVY_CDR_INDEX, LIGHT_CDR_INDEX)
+from dataset.preprocess import (HEAVY_POSITIONS_dict, LIGHT_POSITIONS_dict,
+                                HEAVY_CDR_INDEX, LIGHT_CDR_INDEX)
 from dataset.oas_pair_dataset_new import light_pad_cdr, HEAVY_REGION_INDEX, LIGHT_REGION_INDEX
 from sample import (get_pad_seq, get_input_element, batch_input_element,
                         batch_equal_input_element
