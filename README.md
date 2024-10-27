@@ -124,12 +124,11 @@ python nanobody_scripts/sample_for_nano_cdr.py
 # Citing HuDiff 
 If you use HuDiff in your research, please cite our paper
 ```BibTex
-@article {Ma2024.10.22.619416,
-	author = {Ma, Jian and Wu, Fandi and Xu, Tingyang and Xu, Shaoyong and Liu, Wei and Yan, Divin and Bai, Qifeng and Yao, Jianhua},
-	title = {An adaptive autoregressive diffusion approach to design active humanized antibody and nanobody},
-	elocation-id = {2024.10.22.619416},
-	year = {2024},
-	doi = {10.1101/2024.10.22.619416},
-	publisher = {Cold Spring Harbor Laboratory},
+@article{ma2024adaptive,
+  title={An adaptive autoregressive diffusion approach to design active humanized antibody and nanobody},
+  author={Ma, Jian and Wu, Fandi and Xu, Tingyang and Xu, Shaoyong and Liu, Wei and Yan, Divin and Bai, Qifeng and Yao, Jianhua},
+  journal={bioRxiv},
+  year={2024},
+  publisher={Cold Spring Harbor Laboratory}
 }
 ```
