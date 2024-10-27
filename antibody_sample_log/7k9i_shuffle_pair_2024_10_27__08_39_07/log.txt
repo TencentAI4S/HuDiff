@@ -1,2 +1,0 @@
-[2024-10-27 08:39:39,108::test::INFO] /lzu_baiqf/jianma/antibody_proj/data/release_data_dir/checkpoints/antibody/hudiffab.pt
-[2024-10-27 08:39:39,110::test::INFO] 42
