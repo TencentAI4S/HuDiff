@@ -110,7 +110,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     batch_size = args.batch_size
-    device = 'cuda:3' if torch.cuda.is_available() else 'cpu'
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
     # seed_all(args.seed)
 
     # Read the fasta file or seq.
