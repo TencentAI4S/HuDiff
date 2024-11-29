@@ -217,7 +217,7 @@ def cal_group_fr_germline_identity(df, scheme='imgt'):
 
 
 def raw_mouse_t20():
-    lab_mouse_t20_dirpath = '/lzu_baiqf/jianma/antibody_proj/data/humab25_pair/sample_mouse_t20_score.csv'
+    lab_mouse_t20_dirpath = '/sample_mouse_t20_score.csv'
     lab_mouse_t20_df = pd.read_csv(lab_mouse_t20_dirpath)
     mouse_t20_h_mean = lab_mouse_t20_df['h_score'].mean()
     mouse_t20_l_mean = lab_mouse_t20_df['l_score'].mean()
@@ -225,7 +225,7 @@ def raw_mouse_t20():
 
 
 def exp_human_t20():
-    lab_exper_t20_dirpath = '/lzu_baiqf/jianma/antibody_proj/data/humab25_pair/sample_experimental_t20_score.csv'
+    lab_exper_t20_dirpath = '/sample_experimental_t20_score.csv'
     lab_t20_df = pd.read_csv(lab_exper_t20_dirpath)
     exp_t20_h_mean = lab_t20_df['h_score'].mean()
     exp_t20_l_mean = lab_t20_df['l_score'].mean()
