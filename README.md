@@ -1,4 +1,5 @@
 # HuDiff
+[![DOI](https://zenodo.org/badge/855651026.svg)](https://doi.org/10.5281/zenodo.16974296)
 
 ## Humanization process.
 ![pipeline](doc/process.svg)
@@ -131,4 +132,5 @@ If you use HuDiff in your research, please cite our paper
   year={2024},
   publisher={Cold Spring Harbor Laboratory}
 }
+
 ```
