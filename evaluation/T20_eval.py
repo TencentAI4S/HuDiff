@@ -23,7 +23,7 @@ def get_t20_online(seq, region=1):
     for retry in range(5):
         url = f'https://sam.curiaglobal.com/t20/cgi-bin/blast.py?chain={chain_type}&region={region}&output=3&seqs={seq}'
         try:
-            request = requests.get(url)
+            request = requests.get(url, timeout=30)
             if request.ok:
                 html = request.text
                 break
